@@ -1,0 +1,31 @@
+# Base geoespacial
+geopandas==1.0.1
+shapely==2.1.0
+pyproj==3.7.1
+fiona==1.10.1
+folium==0.19.5
+
+# Base de datos
+sqlalchemy==2.0.40
+psycopg2-binary==2.9.10
+geoalchemy2==0.17.1
+
+# Análisis y modelado
+pandas==2.2.3
+numpy==2.2.5
+scikit-learn==1.6.1
+mgwr==2.2.1
+shap==0.47.2
+
+# Visualización
+matplotlib==3.10.1
+seaborn==0.13.2
+plotly==6.0.1
+
+# Notebooks
+jupyter==1.1.1
+ipykernel==6.29.5
+
+# Versionado de datos
+dvc==3.59.1
+dvc-gdrive==3.0.1

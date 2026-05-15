@@ -1,0 +1,28 @@
+# Datos pesados (gestionados con DVC)
+data/raw/
+data/processed/
+
+# Credenciales y configuración local
+.env
+db_config.py
+*.cfg
+
+# Entorno virtual
+gis_env/
+__pycache__/
+*.pyc
+*.pyo
+.ipynb_checkpoints/
+
+# Archivos temporales
+*.log
+*.tmp
+reorganizar_proyecto.py
+crear_archivos_base.py
+
+# Power BI (archivo binario grande)
+dashboard/*.pbix
+
+# OS
+.DS_Store
+Thumbs.db
