@@ -29,3 +29,4 @@ Thumbs.db
 data/external/
 reports/figures/mapa_territorial_2026.html
 reports/figures/mapa_calor_*.html
+data/processed/*.gpkg
