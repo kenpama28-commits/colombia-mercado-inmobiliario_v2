@@ -1,0 +1,29 @@
+# Local data, archives and generated outputs
+data/**
+!data/README.md
+docs/
+*.zip
+*.gpkg
+*.parquet
+*.backup
+*.sqlite
+*.db
+models/*.joblib
+reports/figures/*.html
+reports/*.html
+reports/*.pdf
+herramientas/
+avaluo/expediente_predio.py
+avaluo/catalogo_sustento.py
+# Secrets, environments and caches
+.env
+.env.*
+!.env.example
+__pycache__/
+*.py[cod]
+.ipynb_checkpoints/
+.venv/
+venv/
+gis_env/
+.DS_Store
+Thumbs.db

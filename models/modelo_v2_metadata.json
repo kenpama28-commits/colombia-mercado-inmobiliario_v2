@@ -1,0 +1,58 @@
+{
+  "modelo": "XGBoost autorregresivo",
+  "version": "v2",
+  "fecha_entrenamiento": "2026-08-04",
+  "reemplaza_a": "xgboost_final_v1 (eliminado 2026-08-04)",
+  "por_que_se_reemplazo": "El v1 se evaluó con train_test_split aleatorio sobre un panel donde cada manzana aparece ~6 veces con features casi constantes. Su R²=0.8454 medía re-identificación de la manzana, no estimación de valor: un baseline trivial (media de la propia manzana) obtenía R²=0.8942. Además usaba `variacion_localidad`, derivada del target y no disponible ex ante.",
+  "features": [
+    "anio_norm",
+    "localidad_enc",
+    "territorio_enc",
+    "dist_tm_m",
+    "dist_metro_m",
+    "dist_sitp_m",
+    "estrato",
+    "indice_inseguridad",
+    "valor_manzana_t1",
+    "var_loc_t1"
+  ],
+  "target": "valor_final",
+  "unidad_target": "COP por m² de terreno (valor de referencia UAECD por manzana)",
+  "protocolo_evaluacion": {
+    "tipo": "holdout temporal",
+    "train": "años ≤ 2025",
+    "test": "año 2026",
+    "n_train": 124742,
+    "n_test": 41519,
+    "por_que": "Es el caso de uso real: estimar un año que el modelo no ha visto. Un split aleatorio sobre panel sobreestima."
+  },
+  "metricas": {
+    "r2": 0.9168,
+    "mae_cop_m2": 259830,
+    "rmse_cop_m2": 459899
+  },
+  "baseline_mismo_protocolo": {
+    "descripcion": "Repetir el valor de referencia del año anterior, sin modelo",
+    "r2": 0.8965,
+    "mae_cop_m2": 315489,
+    "rmse_cop_m2": 512944,
+    "ganancia_mae_cop_m2": 55659
+  },
+  "modelo_exportado": {
+    "entrenado_con": "todos los años ≤ 2026 (166,261 filas)",
+    "para": "estimar 2027",
+    "advertencia": "Las métricas publicadas son las del modelo de evaluación (≤2025→2026), NO de este. Este no se puede medir hasta que exista el dato real de 2027."
+  },
+  "limitaciones": [
+    "MAE de $259,830/m² sobre una mediana de ~$2,5M/m²: ~10% de error típico. Sirve para acotar un RANGO, no para fijar un valor puntual en un avalúo.",
+    "Estima el valor de referencia de TERRENO por MANZANA, no el valor comercial de un predio: no distingue lotes dentro de la manzana ni incorpora construcciones, frente, fondo ni forma.",
+    "No sustituye el método de comparación de mercado que exige el Decreto 1170 de 2015 art. 2.2.2.6.3 num. 1.",
+    "Requiere el valor de la manzana en t-1. Sin ese dato no aplica.",
+    "Entrenado con el valor de referencia UAECD, que se actualiza por resolución anual: declarar siempre el año de corte de los insumos."
+  ],
+  "datos": {
+    "fuente": "data/processed/dataset_modelado.parquet",
+    "origen": "UAECD/IDECA vía PostGIS catastro.valor_manzana",
+    "cobertura": "2022–2026 · 42,085 manzanas · 166,261 filas"
+  }
+}
