@@ -17,6 +17,6 @@ Python 3.12, PostgreSQL con PostGIS y los datos descritos en [`data/README.md`](
 
 ## Alcance de la publicación
 
-Los datos geoespaciales, copias de bases de datos, expedientes prediales, propuestas comerciales y archivos del modelo entrenado se conservan solo localmente. Esta copia omite el historial Git anterior, que se conserva como ZIP en la carpeta de origen. La integración DVC descrita en documentos antiguos no está configurada en este repositorio.
+Los datos geoespaciales, copias de bases de datos, expedientes prediales, propuestas comerciales y archivos del modelo entrenado se conservan solo localmente. Esta copia omite el historial Git anterior, conservado descomprimido en `_historial_git_local/` dentro de la carpeta de origen. La integración DVC descrita en documentos antiguos no está configurada en este repositorio.
 
 **Autor:** Kevin Palacio · [GitHub](https://github.com/kenpama28-commits)

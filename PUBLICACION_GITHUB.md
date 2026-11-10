@@ -11,10 +11,11 @@ original permanece en la carpeta de origen, fuera de este repositorio.
 
 ## Qué se dejó local
 
-- Datos geoespaciales y bases de datos, archivos ZIP y binarios del modelo.
+- Datos geoespaciales y bases de datos, y binarios del modelo.
 - Documentos y propuestas de un predio concreto, así como código que contiene
   información de ese expediente.
-- El historial Git anterior, guardado en un ZIP en la carpeta original. Se evitó
+- El historial Git anterior, guardado descomprimido en `_historial_git_local/`
+  dentro de la carpeta original. Se evitó
   importarlo porque requiere una revisión independiente de todos sus objetos.
 
 ## Antes de publicar
